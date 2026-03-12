@@ -24,6 +24,12 @@ class Vehicle(ABC):
     def is_rented(self):
         return self._is_rented
 
+    @is_rented.setter
+    def is_rented(self, value):
+        if not isinstance(value, bool):
+            raise ValueError("is_rented must be a boolean")
+        self._is_rented = value
+
     @abstractmethod
     def calculate_rental_cost(self, days):
         pass

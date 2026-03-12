@@ -1,4 +1,4 @@
-from vehicle import Vehicle
+from .vehicle import Vehicle
 
 
 class Car(Vehicle):
@@ -14,6 +14,12 @@ class Car(Vehicle):
     @property
     def daily_rate(self):
         return self._daily_rate
+
+    @daily_rate.setter
+    def daily_rate(self, value):
+        if value < 0:
+            raise ValueError("Daily rate cannot be negative")
+        self._daily_rate = value
 
     def calculate_rental_cost(self, days):
         return self._daily_rate * days

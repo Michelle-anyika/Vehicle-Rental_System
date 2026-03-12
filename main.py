@@ -1,7 +1,4 @@
-from car import Car
-from truck import Truck
-from bike import Bike
-from rental_system import RentalSystem
+from vehicle_rental_system import Car, Truck, Bike, RentalSystem
 
 
 def main():

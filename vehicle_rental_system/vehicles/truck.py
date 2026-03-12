@@ -1,4 +1,4 @@
-from vehicle import Vehicle
+from .vehicle import Vehicle
 
 
 class Truck(Vehicle):
@@ -14,6 +14,12 @@ class Truck(Vehicle):
     @property
     def base_rate(self):
         return self._base_rate
+
+    @base_rate.setter
+    def base_rate(self, value):
+        if value < 0:
+            raise ValueError("Base rate cannot be negative")
+        self._base_rate = value
 
     def calculate_rental_cost(self, days):
         return (self._base_rate + self._capacity_tons * 10) * days
